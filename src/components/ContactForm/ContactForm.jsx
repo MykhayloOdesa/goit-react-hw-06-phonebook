@@ -1,9 +1,16 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export default function ContactForm({ onSubmit }) {
+import { getContacts } from 'redux/contacts/selectors';
+import { addContactAction } from 'redux/contacts/slice';
+
+export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const contact = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
@@ -23,7 +30,7 @@ export default function ContactForm({ onSubmit }) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    onSubmit({ name, number });
+    dispatch(addContactAction(contact));
     reset();
   };
 
@@ -74,5 +81,8 @@ export default function ContactForm({ onSubmit }) {
 }
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };

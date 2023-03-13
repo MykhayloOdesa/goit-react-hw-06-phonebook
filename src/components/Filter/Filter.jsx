@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 
-export default function Filter({ value, onChange }) {
+import { setFilter } from 'redux/filter/slice';
+import { getFilter } from 'redux/filter/selectors';
+
+export default function Filter() {
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+
+  const onChange = ({ target }) => {
+    dispatch(setFilter(target.value));
+  };
+
   return (
     <div className="inputForm">
       <label className="inputLabel">
@@ -9,7 +20,7 @@ export default function Filter({ value, onChange }) {
         <input
           className="inputField"
           type="text"
-          value={value}
+          value={filter}
           onChange={onChange}
           name="filter"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -23,6 +34,6 @@ export default function Filter({ value, onChange }) {
 }
 
 Filter.propTypes = {
-  value: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
