@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { contactsReducer } from './reducers/contactsReducer';
+import { contactsReducer } from './contactsReducer';
 
 const rootReducer = combineReducers({
   contacts: contactsReducer,
