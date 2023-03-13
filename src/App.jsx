@@ -22,7 +22,6 @@ export default function App() {
 
   const filter = useSelector(getFilter);
   const filteredContacts = getFilteredContacts(contacts, filter);
-  console.log(filteredContacts);
 
   const addContact = data => {
     dispatch(addContactAction(data));
