@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   getFilteredContacts,
   getContacts,
-} from 'redux/reducers/contacts/contactSelector';
+} from 'redux/contacts/contactSelector';
 import {
   addContactAction,
   deleteContactAction,
-} from 'redux/reducers/contacts/contactSlice';
+} from 'redux/contacts/contactSlice';
 
-import { getFilter } from 'redux/reducers/filter/filterSelector';
-import { setFilter } from 'redux/reducers/filter/filterSlice';
+import { getFilter } from 'redux/filter/filterSelector';
+import { setFilter } from 'redux/filter/filterSlice';
 
 import Layout from './components/Layout/Layout';
 import ContactList from './components/ContactList/ContactList';
