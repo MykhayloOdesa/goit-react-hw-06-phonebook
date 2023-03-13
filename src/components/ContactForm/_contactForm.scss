@@ -1,0 +1,46 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputForm {
+  width: 100%;
+}
+
+.inputLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.inputField {
+  padding: 10px;
+  border: 1px solid black;
+  outline: none;
+
+  &:focus,
+  &:hover {
+    background-color: teal;
+    color: white;
+  }
+}
+
+.inputButton {
+  max-width: 150px;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+
+  transition: 500ms;
+
+  &:hover,
+  &:focus {
+    background-color: teal;
+    color: white;
+    box-shadow: 0 0 5px teal;
+  }
+}
