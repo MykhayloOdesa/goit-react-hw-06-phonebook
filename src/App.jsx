@@ -1,16 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import {
-  getFilteredContacts,
-  getContacts,
-} from 'redux/contacts/contactSelector';
+import { getFilteredContacts, getContacts } from 'redux/contacts/selectors';
 import {
   addContactAction,
   deleteContactAction,
 } from 'redux/contacts/contactSlice';
 
-import { getFilter } from 'redux/filter/filterSelector';
-import { setFilter } from 'redux/filter/filterSlice';
+import { getFilter } from 'redux/filter/selectors';
+import {redux/contacts/slicelter/filterSlice';
 
 import Layout from './components/Layout/Layout';
 import ContactList from './components/ContactList/ContactList';
