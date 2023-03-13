@@ -7,7 +7,7 @@ import {
 } from 'redux/contacts/contactSlice';
 
 import { getFilter } from 'redux/filter/selectors';
-import {redux/contacts/slicelter/filterSlice';
+import { setFilter } from 'redux/filter/slice';
 
 import Layout from './components/Layout/Layout';
 import ContactList from './components/ContactList/ContactList';
