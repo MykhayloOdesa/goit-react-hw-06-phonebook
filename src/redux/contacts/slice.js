@@ -37,12 +37,13 @@ const contactsSlice = createSlice({
       prepare: data => {
         return {
           payload: {
-            ...data,
             id: nanoid(),
+            ...data,
           },
         };
       },
     },
+
     deleteContactAction: (store, { payload }) =>
       store.filter(({ id }) => id !== payload),
   },
