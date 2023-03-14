@@ -16,7 +16,11 @@ export default function ContactList() {
   return (
     <ul>
       {listedContacts.map(({ id, name, number }) => {
-        return <ContactListItem key={id} name={name} number={number} />;
+        return (
+          <li key={id} className="listContact">
+            <ContactListItem id={id} name={name} number={number} />
+          </li>
+        );
       })}
     </ul>
   );

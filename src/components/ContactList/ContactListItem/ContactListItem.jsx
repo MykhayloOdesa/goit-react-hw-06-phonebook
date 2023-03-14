@@ -7,7 +7,7 @@ export default function ContactListItem({ id, name, number }) {
   const dispatch = useDispatch();
 
   return (
-    <li key={id} className="listContact">
+    <>
       <p>
         {name}: {number}
       </p>
@@ -18,7 +18,7 @@ export default function ContactListItem({ id, name, number }) {
       >
         Delete
       </button>
-    </li>
+    </>
   );
 }
 

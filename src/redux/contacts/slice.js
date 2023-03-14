@@ -12,7 +12,6 @@ const contactsSlice = createSlice({
   reducers: {
     addContactAction: {
       reducer: (store, { payload }) => {
-        console.log(payload);
         store.push(payload);
       },
       prepare: (name, number) => {
@@ -28,8 +27,7 @@ const contactsSlice = createSlice({
 
     deleteContactAction: {
       reducer: (store, { payload }) => {
-        console.log(payload);
-        store.filter(({ id }) => id !== payload.id);
+        return store.filter(({ id }) => id !== payload.id);
       },
       prepare: id => {
         return {
