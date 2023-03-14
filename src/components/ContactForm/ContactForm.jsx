@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import { getContacts } from 'redux/contacts/selectors';
 import { addContactAction } from 'redux/contacts/slice';
@@ -87,9 +87,9 @@ export default function ContactForm() {
   );
 }
 
-ContactForm.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
-  handleSubmit: PropTypes.func,
-  handleChange: PropTypes.func,
-};
+// ContactForm.propTypes = {
+//   name: PropTypes.string,
+//   number: PropTypes.string,
+//   handleSubmit: PropTypes.func,
+//   handleChange: PropTypes.func,
+// };

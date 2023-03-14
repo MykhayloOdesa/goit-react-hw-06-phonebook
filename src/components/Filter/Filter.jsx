@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setFilter } from 'redux/filter/slice';
@@ -33,7 +33,7 @@ export default function Filter() {
   );
 }
 
-Filter.propTypes = {
-  filter: PropTypes.string,
-  onChange: PropTypes.func,
-};
+// Filter.propTypes = {
+//   filter: PropTypes.string,
+//   onChange: PropTypes.func,
+// };
