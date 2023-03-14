@@ -1,20 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 
-const isDublicate = ({ name, number }, contacts) => {
-  const normalizedName = name.toLowerCase();
-  const normalizedNumber = number.toLowerCase();
-
-  const result = contacts.find(item => {
-    return (
-      normalizedName === item.name.toLowerCase() &&
-      normalizedNumber === item.number.toLowerCase()
-    );
-  });
-
-  return Boolean(result);
-};
-
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: [
@@ -26,26 +12,33 @@ const contactsSlice = createSlice({
   reducers: {
     addContactAction: {
       reducer: (store, { payload }) => {
-        if (isDublicate(payload, store)) {
-          return alert(
-            `${payload.name} : ${payload.number} is already in contacts`
-          );
-        }
-
+        console.log(payload);
         store.push(payload);
       },
-      prepare: data => {
+      prepare: (name, number) => {
         return {
           payload: {
             id: nanoid(),
-            ...data,
+            name,
+            number,
           },
         };
       },
     },
 
-    deleteContactAction: (store, { payload }) =>
-      store.filter(({ id }) => id !== payload),
+    deleteContactAction: {
+      reducer: (store, { payload }) => {
+        console.log(payload);
+        store.filter(({ id }) => id !== payload.id);
+      },
+      prepare: id => {
+        return {
+          payload: {
+            id,
+          },
+        };
+      },
+    },
   },
 });
 

@@ -6,8 +6,6 @@ import { deleteContactAction } from 'redux/contacts/slice';
 export default function ContactListItem({ id, name, number }) {
   const dispatch = useDispatch();
 
-  const deleteContact = id => dispatch(deleteContactAction(id));
-
   return (
     <li key={id} className="listContact">
       <p>
@@ -16,7 +14,7 @@ export default function ContactListItem({ id, name, number }) {
       <button
         className="listButton"
         type="button"
-        onClick={() => deleteContact(id)}
+        onClick={() => dispatch(deleteContactAction(id))}
       >
         Delete
       </button>
@@ -30,5 +28,4 @@ ContactListItem.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   }),
-  deleteContact: PropTypes.func.isRequired,
 };

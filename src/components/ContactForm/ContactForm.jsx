@@ -9,7 +9,7 @@ export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contact = useSelector(getContacts);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const handleChange = event => {
@@ -30,7 +30,14 @@ export default function ContactForm() {
   const handleSubmit = event => {
     event.preventDefault();
 
-    dispatch(addContactAction(contact));
+    if (
+      contacts.some(event => event.name === name && event.number === number)
+    ) {
+      alert(`${name}: ${number} is already in contacts!`);
+      return;
+    }
+
+    dispatch(addContactAction(name, number));
     reset();
   };
 
@@ -81,8 +88,8 @@ export default function ContactForm() {
 }
 
 ContactForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  number: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  handleChange: PropTypes.func,
 };
